@@ -14,7 +14,7 @@ class Player:
 
         color_counter = {"spades": 0, "hearts": 0, "clubs": 0, "diamonds": 0}
 
-        # Check card distance
+        # Check card distance before flop
         cards_values = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
         difference = abs(cards_values.index(first_card["rank"]) - cards_values.index(second_card["rank"]))
         difference_modifiers = {1: 5, 2: 3, 3: 0, 4: -1, 5: -3, 6: -5}
@@ -29,6 +29,8 @@ class Player:
         # if len(community_cards) == 0 or len(community_cards) == 4 or len(community_cards) == 5:
         if first_card["rank"] == second_card["rank"]:
             pair_in_hand = True
+            if first_card["rank"] in ["Q", "K", "A"]:
+                return game_state["current_buy_in"] - our_player["bet"] + game_state["minimum_raise"]
             return game_state["current_buy_in"] - our_player["bet"]
 
         if total_card_value >= 30:
