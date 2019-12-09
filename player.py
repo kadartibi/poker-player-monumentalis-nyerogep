@@ -18,7 +18,7 @@ class Player:
         cards_values = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
         difference = abs(cards_values.index(first_card["rank"]) - cards_values.index(second_card["rank"]))
         difference_modifiers = {1: 5, 2: 3, 3: 0, 4: -1, 5: -3, 6: -5}
-        card_difference = difference_modifiers[difference] if difference < 7 else -10
+        card_difference = difference_modifiers[difference] if 0 < difference < 7 else -10
 
         # Check card color
         color_value_modifier = 3 if first_card["suit"] == second_card["suit"] else 0
