@@ -10,8 +10,7 @@ class Player:
         first_card = our_player["hole_cards"][0]
         second_card = our_player["hole_cards"][1]
         card_difference = card_distance(first_card, second_card)
-        total_card_value = cards_values_dict[first_card["rank"]] + cards_values_dict[
-            second_card["rank"]]
+        total_card_value = cards_values_dict[first_card["rank"]] + cards_values_dict[second_card["rank"]]
                            #+ card_difference + check_card_color(first_card, second_card)
 
         if first_card["rank"] == second_card["rank"] or total_card_value >= 30:
